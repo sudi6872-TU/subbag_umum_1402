@@ -10,17 +10,20 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 2. SIDEBAR (NAVIGASI)
+# 2. SIDEBAR (NAVIGASI MANUAL)
 with st.sidebar:
     st.image("https://www.bps.go.id/id/logo-bps.png", width=100)
     st.title("Navigasi Utama")
     st.write("---")
     
-    # Cek Folder Pages
+    # TOMBOL PEMAKSA
+    # Jika sistem otomatis gagal, kita gunakan tombol manual ini
+    if st.button("👥 Buka Data Personil"):
+        st.switch_page("pages/1_Personil.py")
+        
+    st.write("---")
     if os.path.exists("pages"):
         st.success("✅ Folder 'pages' terdeteksi")
-    else:
-        st.error("❌ Folder 'pages' tidak ditemukan")
 
 # 3. KONTEN UTAMA
 st.title("📊 Dashboard Subbagian Umum")
