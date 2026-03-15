@@ -1,12 +1,15 @@
 import streamlit as st
 import pandas as pd
 
-# Konfigurasi Halaman
+# 1. Pastikan ini adalah baris pertama setelah import
 st.set_page_config(
     page_title="Dashboard Umum BPS Inhu",
     page_icon="📊",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="expanded"  # Ini memaksa sidebar terbuka
 )
+
+# Sisanya tetap sama...
 
 # Custom CSS (Sudah diperbaiki)
 st.markdown("""
