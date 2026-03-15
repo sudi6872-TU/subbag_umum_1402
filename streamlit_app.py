@@ -13,7 +13,7 @@ st.set_page_config(
 # 2. SIDEBAR (NAVIGASI MANUAL)
 # 2. SIDEBAR (LOGIKA NAVIGASI YANG BENAR)
 with st.sidebar:
-    st.image("https://www.bps.go.id/id/logo-bps.png", width=100)
+    st.image("logo_bps.png", width=100)
     st.title("Navigasi Utama")
     st.write("---")
     
@@ -21,7 +21,7 @@ with st.sidebar:
     # Ini memastikan koding hanya jalan saat diklik
     if st.button("👥 Buka Data Personil"):
         try:
-            st.switch_page("1_Personil.py")
+            st.switch_page("pages/1_Personil.py")
         except:
             st.error("Gagal pindah halaman. Cek apakah file 'pages/1_Personil.py' ada di GitHub.")
 
