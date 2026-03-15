@@ -21,7 +21,7 @@ with st.sidebar:
     # Ini memastikan koding hanya jalan saat diklik
     if st.button("👥 Buka Data Personil"):
         try:
-            st.switch_page("pages/1_Personil.py")
+            st.switch_page("1_Personil.py")
         except:
             st.error("Gagal pindah halaman. Cek apakah file 'pages/1_Personil.py' ada di GitHub.")
 
