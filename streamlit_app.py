@@ -1,12 +1,52 @@
-# 3. SIDEBAR (LOGIKA MENU MANUAL)
+import streamlit as st
+import pandas as pd
+import os
+
+# 1. KONFIGURASI HALAMAN (WAJIB BARIS PERTAMA)
+st.set_page_config(
+    page_title="Dashboard Umum BPS Inhu",
+    page_icon="📊",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# 2. SIDEBAR (NAVIGASI)
 with st.sidebar:
     st.image("https://www.bps.go.id/id/logo-bps.png", width=100)
     st.title("Navigasi Utama")
     st.write("---")
     
-    # Membuat tombol navigasi manual ke halaman di dalam folder pages
-    if st.button("👥 Data Personil"):
-        st.switch_page("pages/1_Personil.py")
-    
+    # Cek Folder Pages
     if os.path.exists("pages"):
         st.success("✅ Folder 'pages' terdeteksi")
+    else:
+        st.error("❌ Folder 'pages' tidak ditemukan")
+
+# 3. KONTEN UTAMA
+st.title("📊 Dashboard Subbagian Umum")
+st.subheader("BPS Kabupaten Indragiri Hulu")
+
+st.info("Selamat datang di pusat kendali administrasi dan manajemen internal.")
+
+# Baris Metrik
+col1, col2, col3, col4 = st.columns(4)
+with col1:
+    st.metric("Realisasi Anggaran", "78.5%", "2.1%")
+with col2:
+    st.metric("Pegawai Aktif", "24 Orang", "0")
+with col3:
+    st.metric("Kepatuhan ZI", "95%", "Sangat Baik")
+with col4:
+    st.metric("Aset BMN", "412 Unit", "12 Baru")
+
+st.divider()
+
+# Grafik Progres
+st.write("### 📈 Progres Kegiatan Strategis 2026")
+chart_data = pd.DataFrame({
+    'Kegiatan': ['Personil', 'Adm. Umum', 'SDM', 'Risiko'],
+    'Progres (%)': [85, 70, 90, 65]
+})
+st.bar_chart(data=chart_data, x='Kegiatan', y='Progres (%)')
+
+st.success("Pilih menu di samping kiri untuk melihat detail.")
