@@ -8,20 +8,14 @@ st.set_page_config(
     layout="wide"
 )
 
-# Custom CSS untuk warna BPS (Opsional)
+# Custom CSS (Sudah diperbaiki)
 st.markdown("""
     <style>
     .main {
         background-color: #f5f7f9;
     }
-    .stMetric {
-        background-color: #ffffff;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
     </style>
-    """, unsafe_index=True)
+    """, unsafe_allow_html=True)
 
 # Header
 st.title("📊 Dashboard Subbagian Umum")
@@ -41,12 +35,12 @@ with col4:
 
 st.divider()
 
-# Grafik Sederhana (Contoh)
+# Grafik Sederhana
 st.write("### Progres Kegiatan Strategis 2026")
 chart_data = pd.DataFrame({
     'Kegiatan': ['Keuangan', 'SDM', 'Risiko', 'ZI/SAKIP', 'BMN'],
     'Progres (%)': [80, 90, 65, 85, 70]
 })
-st.bar_chart(data=chart_data, x='Kegiatan', y='Progres (%)', color="#004a8c")
+st.bar_chart(data=chart_data, x='Kegiatan', y='Progres (%)')
 
 st.success("Gunakan menu di samping kiri untuk melihat detail per bidang.")
