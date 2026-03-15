@@ -11,19 +11,19 @@ st.set_page_config(
 )
 
 # 2. SIDEBAR (NAVIGASI MANUAL)
+# 2. SIDEBAR (LOGIKA NAVIGASI YANG BENAR)
 with st.sidebar:
     st.image("https://www.bps.go.id/id/logo-bps.png", width=100)
     st.title("Navigasi Utama")
     st.write("---")
     
-    # TOMBOL PEMAKSA
-    # Jika sistem otomatis gagal, kita gunakan tombol manual ini
+    # Bungkus st.switch_page di dalam IF tombol
+    # Ini memastikan koding hanya jalan saat diklik
     if st.button("👥 Buka Data Personil"):
-        st.switch_page("pages/1_Personil.py")
-        
-    st.write("---")
-    if os.path.exists("pages"):
-        st.success("✅ Folder 'pages' terdeteksi")
+        try:
+            st.switch_page("pages/1_Personil.py")
+        except:
+            st.error("Gagal pindah halaman. Cek apakah file 'pages/1_Personil.py' ada di GitHub.")
 
 # 3. KONTEN UTAMA
 st.title("📊 Dashboard Subbagian Umum")
